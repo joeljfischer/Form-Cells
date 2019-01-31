@@ -1,15 +1,16 @@
 //
-//  TextFieldTableViewCell.swift
-//  Reminders Pro
+//  FloatTextFieldTableViewCell.swift
+//  Ding-Timer
 //
-//  Created by Joel Fischer on 10/2/18.
-//  Copyright © 2018 Joel Fischer. All rights reserved.
+//  Created by Joel Fischer on 1/31/19.
+//  Copyright © 2019 Joel Fischer. All rights reserved.
 //
 
+import SkyFloatingLabelTextField
 import UIKit
 
-class TextFieldTableViewCell: UITableViewCell {
-    @IBOutlet weak private var textField: UITextField!
+class FloatTextFieldTableViewCell: UITableViewCell {
+    @IBOutlet weak var textField: SkyFloatingLabelTextField!
 
     var placeholder: String? {
         get {
@@ -17,6 +18,15 @@ class TextFieldTableViewCell: UITableViewCell {
         }
         set {
             textField.placeholder = newValue
+        }
+    }
+
+    var title: String? {
+        get {
+            return textField.title
+        }
+        set {
+            textField.title = newValue
         }
     }
 
@@ -33,11 +43,4 @@ class TextFieldTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
