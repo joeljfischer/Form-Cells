@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ButtonTableViewCell: UITableViewCell {
+class ButtonTableViewCell: UITableViewCell, FormTapCallbackable {
     @IBOutlet weak private var button: UIButton!
 
-    var onSelect: (() -> Void)?
-
+    var onSelection: ((FormTapCallbackable) -> Void)?
     var title: String? {
         didSet {
             button.setTitle(title, for: .normal)
@@ -26,7 +25,13 @@ class ButtonTableViewCell: UITableViewCell {
     }
 
     @objc private func buttonSelected() {
-        guard let onSelect = onSelect else { return }
-        onSelect()
+        tapped()
+    }
+}
+
+extension ButtonTableViewCell: FormTappable {
+    func tapped() {
+        guard let onSelection = onSelection else { return }
+        onSelection(self)
     }
 }
