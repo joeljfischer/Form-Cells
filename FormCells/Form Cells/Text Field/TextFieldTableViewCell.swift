@@ -40,3 +40,9 @@ class TextFieldTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 }
+
+extension TextFieldTableViewCell: FormTappable {
+    func tapped() {
+        textField.becomeFirstResponder()
+    }
+}
