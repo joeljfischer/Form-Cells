@@ -8,8 +8,10 @@
 
 import UIKit
 
-class TextFieldTableViewCell: UITableViewCell {
+class TextFieldTableViewCell: UITableViewCell, Verifiable {
     @IBOutlet weak private var textField: UITextField!
+
+    var rules: [Rule] = []
 
     var placeholder: String? {
         get {
@@ -20,7 +22,7 @@ class TextFieldTableViewCell: UITableViewCell {
         }
     }
 
-    var fieldText: String? {
+    var data: String? {
         get {
             return textField.text
         }

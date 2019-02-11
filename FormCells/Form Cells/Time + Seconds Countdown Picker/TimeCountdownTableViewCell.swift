@@ -11,6 +11,16 @@ import UIKit
 class TimeCountdownTableViewCell: UITableViewCell {
     @IBOutlet weak var picker: CountdownPicker!
 
+    var data: TimeInterval {
+        get {
+            let hour = picker.hour * 60 * 60
+            let minute = picker.minute * 60
+            let second = picker.second
+
+            return TimeInterval(hour + minute + second)
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

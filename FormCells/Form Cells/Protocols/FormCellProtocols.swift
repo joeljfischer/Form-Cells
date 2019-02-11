@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FormDataRetrievable where Self: UITableViewCell {
+    var data: Any { get set }
+}
+
 protocol FormTappable where Self: UITableViewCell {
     func tapped()
 }
