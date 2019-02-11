@@ -11,7 +11,7 @@ import UIKit
 class ButtonTableViewCell: UITableViewCell, FormTapCallbackable {
     @IBOutlet weak private var button: UIButton!
 
-    var onSelection: ((FormTapCallbackable) -> Void)?
+    var onSelection: (() -> Void)?
     var title: String? {
         didSet {
             button.setTitle(title, for: .normal)
@@ -32,6 +32,6 @@ class ButtonTableViewCell: UITableViewCell, FormTapCallbackable {
 extension ButtonTableViewCell: FormTappable {
     func tapped() {
         guard let onSelection = onSelection else { return }
-        onSelection(self)
+        onSelection()
     }
 }

@@ -17,7 +17,7 @@ protocol FormTappable where Self: UITableViewCell {
 }
 
 protocol FormTapCallbackable where Self: FormTappable {
-    var onSelection: ((FormTapCallbackable) -> Void)? { get set }
+    var onSelection: (() -> Void)? { get set }
 }
 
 protocol FormPresentable where Self: UIViewController {

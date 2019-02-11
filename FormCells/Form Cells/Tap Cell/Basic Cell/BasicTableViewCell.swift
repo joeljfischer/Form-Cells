@@ -9,7 +9,7 @@
 import UIKit
 
 class BasicTableViewCell: UITableViewCell, FormTapCallbackable {
-    var onSelection: ((FormTapCallbackable) -> Void)?
+    var onSelection: (() -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +25,6 @@ class BasicTableViewCell: UITableViewCell, FormTapCallbackable {
 
 extension BasicTableViewCell: FormTappable {
     func tapped() {
-        self.onSelection?(self)
+        self.onSelection?()
     }
 }
