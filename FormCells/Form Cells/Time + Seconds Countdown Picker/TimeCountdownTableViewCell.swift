@@ -8,10 +8,15 @@
 
 import UIKit
 
-class TimeCountdownTableViewCell: UITableViewCell {
+class TimeCountdownTableViewCell: FormTableViewCell<TimeInterval> {
     @IBOutlet weak var picker: CountdownPicker!
 
-    var data: TimeInterval {
+    override var cellHeight: CGFloat {
+        get {
+            return 220
+        }
+    }
+    override var data: TimeInterval? {
         get {
             let hour = picker.hour * 60 * 60
             let minute = picker.minute * 60
@@ -19,11 +24,25 @@ class TimeCountdownTableViewCell: UITableViewCell {
 
             return TimeInterval(hour + minute + second)
         }
+        set {
+            guard let data = data else {
+                picker.hour = 0
+                picker.minute = 0
+                picker.second = 0
+                return
+            }
+
+            let time = data.timeFromTimeInterval
+            picker.hour = time.hour
+            picker.minute = time.minute
+            picker.second = time.second
+        }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        picker.heightAnchor.constraint(equalToConstant: 215).isActive = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

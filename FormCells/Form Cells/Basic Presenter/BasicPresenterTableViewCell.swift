@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicPresenterTableViewCell: UITableViewCell {
+class BasicPresenterTableViewCell: FormTableViewCell<Any> {
     var presentingViewController: UIViewController?
     var presentedViewController: FormPresentable? {
         didSet {
@@ -23,10 +23,8 @@ class BasicPresenterTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-}
 
-extension BasicPresenterTableViewCell: FormTappable {
-    func tapped() {
+    override func tapped() {
         guard let navigationController = presentingViewController?.navigationController, let presentedViewController = presentedViewController else {
             fatalError("You cannot use the SingleSelectionTableViewCell before setting `presentingViewController` and that view controller must be in a UINavigationController")
         }

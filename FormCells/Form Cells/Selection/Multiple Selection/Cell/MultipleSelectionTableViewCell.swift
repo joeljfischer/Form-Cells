@@ -8,8 +8,7 @@
 
 import UIKit
 
-class MultipleSelectionTableViewCell: UITableViewCell {
-    private var tapGesture: UITapGestureRecognizer!
+class MultipleSelectionTableViewCell: FormTableViewCell<Any>  {
     private let optionsVC = MultipleSelectionTableViewController(style: .grouped)
     var presentingViewController: UIViewController?
 
@@ -48,15 +47,12 @@ class MultipleSelectionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
-        addGestureRecognizer(tapGesture)
-
         optionsVC.onSelection = { [weak self] (values) in
             self?.values = values
         }
     }
 
-    @objc private func cellTapped() {
+    override func tapped() {
         guard let navigationController = presentingViewController?.navigationController else {
             fatalError("You cannot use the MultipleSelectionTableViewCell before setting `presentingViewController` and that view controller must be in a UINavigationController")
         }

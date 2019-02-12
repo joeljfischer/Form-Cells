@@ -8,8 +8,7 @@
 
 import UIKit
 
-class SingleSelectionTableViewCell: UITableViewCell {
-    private var tapGesture: UITapGestureRecognizer!
+class SingleSelectionTableViewCell: FormTableViewCell<Any> {
     private let optionsVC = SingleSelectionTableViewController(style: .grouped)
     var presentingViewController: UIViewController?
 
@@ -35,15 +34,12 @@ class SingleSelectionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
-        addGestureRecognizer(tapGesture)
-
         optionsVC.onSelection = { [weak self] (value) in
             self?.value = value
         }
     }
 
-    @objc private func cellTapped() {
+    override func tapped() {
         guard let navigationController = presentingViewController?.navigationController else {
             fatalError("You cannot use the SingleSelectionTableViewCell before setting `presentingViewController` and that view controller must be in a UINavigationController")
         }

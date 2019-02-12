@@ -8,9 +8,7 @@
 
 import UIKit
 
-class BasicTableViewCell: UITableViewCell, FormTapCallbackable {
-    var onSelection: (() -> Void)?
-
+class BasicTableViewCell: FormTableViewCell<Any> {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,11 +18,5 @@ class BasicTableViewCell: UITableViewCell, FormTapCallbackable {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-}
-
-extension BasicTableViewCell: FormTappable {
-    func tapped() {
-        self.onSelection?()
     }
 }

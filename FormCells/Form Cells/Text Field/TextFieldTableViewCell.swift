@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextFieldTableViewCell: UITableViewCell, Verifiable {
+class TextFieldTableViewCell: FormTableViewCell<String>, Verifiable {
     @IBOutlet weak private var textField: UITextField!
 
     var rules: [Rule] = []
@@ -22,7 +22,7 @@ class TextFieldTableViewCell: UITableViewCell, Verifiable {
         }
     }
 
-    var data: String? {
+    override var data: String? {
         get {
             return textField.text
         }
@@ -41,10 +41,8 @@ class TextFieldTableViewCell: UITableViewCell, Verifiable {
 
         // Configure the view for the selected state
     }
-}
 
-extension TextFieldTableViewCell: FormTappable {
-    func tapped() {
+    override func tapped() {
         textField.becomeFirstResponder()
     }
 }
