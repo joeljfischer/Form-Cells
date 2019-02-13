@@ -11,11 +11,6 @@ import UIKit
 class FormTableViewCell<DataType>: UITableViewCell {
     var data: DataType?
     var onSelection: (() -> Void) = {}
-    var cellHeight: CGFloat {
-        get {
-            return 44.0
-        }
-    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
