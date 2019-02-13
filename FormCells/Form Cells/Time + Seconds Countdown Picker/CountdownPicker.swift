@@ -8,13 +8,34 @@
 
 import UIKit
 
-class CountdownPicker: UIPickerView {
-    var hour = 0
-    var minute = 0
-    var second = 0
+private enum CountdownPickerComponents: Int, CaseIterable {
+    case hour, hourLabel, minute, minuteLabel, second, secondLabel
+}
 
-    private enum CountdownPickerComponents: CaseIterable {
-        case hour, hourLabel, minute, minuteLabel, second, secondLabel
+class CountdownPicker: UIPickerView {
+    var hour: Int {
+        get {
+            return selectedRow(inComponent: CountdownPickerComponents.hour.rawValue)
+        }
+        set {
+            selectRow(newValue, inComponent: CountdownPickerComponents.hour.rawValue, animated: true)
+        }
+    }
+    var minute: Int {
+        get {
+            return selectedRow(inComponent: CountdownPickerComponents.minute.rawValue)
+        }
+        set {
+            selectRow(newValue, inComponent: CountdownPickerComponents.minute.rawValue, animated: true)
+        }
+    }
+    var second: Int {
+        get {
+            return selectedRow(inComponent: CountdownPickerComponents.second.rawValue)
+        }
+        set {
+            selectRow(newValue, inComponent: CountdownPickerComponents.second.rawValue, animated: true)
+        }
     }
 
     override init(frame: CGRect) {
@@ -41,6 +62,21 @@ class CountdownPicker: UIPickerView {
 }
 
 extension CountdownPicker: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch CountdownPickerComponents.allCases[component] {
+        case .hour: fallthrough
+        case .minute: fallthrough
+        case .second:
+            return "\(row)"
+        case .hourLabel:
+            return "hr"
+        case .minuteLabel:
+            return "min"
+        case .secondLabel:
+            return "sec"
+        }
+    }
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch CountdownPickerComponents.allCases[component] {
         case .hour:
@@ -53,30 +89,30 @@ extension CountdownPicker: UIPickerViewDelegate {
         }
     }
 
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let columnView: UILabel
-        if view == nil {
-            columnView = UILabel(frame: CGRect(x: 35, y: 0, width: frame.size.width / 3, height: 44))
-            columnView.textAlignment = .center
-        } else {
-            columnView = view as! UILabel
-        }
-
-        switch CountdownPickerComponents.allCases[component] {
-        case .hour: fallthrough
-        case .minute: fallthrough
-        case .second:
-            columnView.text = "\(row)"
-        case .hourLabel:
-            columnView.text = "hr"
-        case .minuteLabel:
-            columnView.text = "min"
-        case .secondLabel:
-            columnView.text = "sec"
-        }
-
-        return columnView
-    }
+//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+//        let columnView: UILabel
+//        if view == nil {
+//            columnView = UILabel(frame: CGRect(x: 35, y: 0, width: frame.size.width / 3, height: 44))
+//            columnView.textAlignment = .center
+//        } else {
+//            columnView = view as! UILabel
+//        }
+//
+//        switch CountdownPickerComponents.allCases[component] {
+//        case .hour: fallthrough
+//        case .minute: fallthrough
+//        case .second:
+//            columnView.text = "\(row)"
+//        case .hourLabel:
+//            columnView.text = "hr"
+//        case .minuteLabel:
+//            columnView.text = "min"
+//        case .secondLabel:
+//            columnView.text = "sec"
+//        }
+//
+//        return columnView
+//    }
 }
 
 extension CountdownPicker: UIPickerViewDataSource {
@@ -103,11 +139,11 @@ extension CountdownPicker: UIPickerViewDataSource {
         case .hourLabel: fallthrough
         case .minuteLabel: fallthrough
         case .secondLabel:
-            return pickerView.frame.width / 12
+            return pickerView.frame.width / 6
         case .hour: fallthrough
         case .minute: fallthrough
         case .second:
-            return pickerView.frame.width / 6
+            return pickerView.frame.width / 12
         }
     }
 }

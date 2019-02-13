@@ -9,7 +9,8 @@
 import UIKit
 
 class TimeCountdownTableViewCell: FormTableViewCell<TimeInterval> {
-    @IBOutlet weak var picker: CountdownPicker!
+    @IBOutlet private weak var picker: CountdownPicker!
+
     override var data: TimeInterval? {
         get {
             let hour = picker.hour * 60 * 60
