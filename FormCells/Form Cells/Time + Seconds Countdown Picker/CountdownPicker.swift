@@ -62,21 +62,6 @@ class CountdownPicker: UIPickerView {
 }
 
 extension CountdownPicker: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch CountdownPickerComponents.allCases[component] {
-        case .hour: fallthrough
-        case .minute: fallthrough
-        case .second:
-            return "\(row)"
-        case .hourLabel:
-            return "hr"
-        case .minuteLabel:
-            return "min"
-        case .secondLabel:
-            return "sec"
-        }
-    }
-
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch CountdownPickerComponents.allCases[component] {
         case .hour:
@@ -89,30 +74,31 @@ extension CountdownPicker: UIPickerViewDelegate {
         }
     }
 
-//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-//        let columnView: UILabel
-//        if view == nil {
-//            columnView = UILabel(frame: CGRect(x: 35, y: 0, width: frame.size.width / 3, height: 44))
-//            columnView.textAlignment = .center
-//        } else {
-//            columnView = view as! UILabel
-//        }
-//
-//        switch CountdownPickerComponents.allCases[component] {
-//        case .hour: fallthrough
-//        case .minute: fallthrough
-//        case .second:
-//            columnView.text = "\(row)"
-//        case .hourLabel:
-//            columnView.text = "hr"
-//        case .minuteLabel:
-//            columnView.text = "min"
-//        case .secondLabel:
-//            columnView.text = "sec"
-//        }
-//
-//        return columnView
-//    }
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let columnView: UILabel
+        if view == nil {
+            columnView = UILabel(frame: CGRect(x: 35, y: 0, width: frame.size.width / 6, height: 44))
+            columnView.textAlignment = .center
+            columnView.font = UIFont.systemFont(ofSize: 22)
+        } else {
+            columnView = view as! UILabel
+        }
+
+        switch CountdownPickerComponents.allCases[component] {
+        case .hour: fallthrough
+        case .minute: fallthrough
+        case .second:
+            columnView.text = "\(row)"
+        case .hourLabel:
+            columnView.text = "hr"
+        case .minuteLabel:
+            columnView.text = "min"
+        case .secondLabel:
+            columnView.text = "sec"
+        }
+
+        return columnView
+    }
 }
 
 extension CountdownPicker: UIPickerViewDataSource {
