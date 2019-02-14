@@ -8,10 +8,8 @@
 
 import UIKit
 
-class TextFieldTableViewCell: FormTableViewCell<String>, Verifiable {
+class TextFieldTableViewCell: FormTableViewCell<String> {
     @IBOutlet weak private var textField: UITextField!
-
-    var rules: [Rule] = []
 
     var placeholder: String? {
         get {

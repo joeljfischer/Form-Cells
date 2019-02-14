@@ -9,13 +9,14 @@
 import Foundation
 
 protocol Verifiable {
-    var data: String? { get set }
-    var rules: [Rule] { get set }
+    associatedtype DataType
+    var data: DataType? { get set }
+    var rules: [Rule<Any>] { get set }
 
     func verify() -> Bool
 }
 extension Verifiable {
-    func verify() -> Bool {
+    func verify(data: DataType) -> Bool {
         for rule in rules {
             if rule.verify(data: data) {
                 continue
@@ -28,14 +29,26 @@ extension Verifiable {
     }
 }
 
-protocol Rule {
-    func verify(data: String?) -> Bool
+class Rule<DataType> {
+    func verify(data: DataType?) -> Bool { return false }
 }
 
-protocol RuleRequired: Rule {}
-extension RuleRequired {
-    func verify(data: String?) -> Bool {
+class RuleRequired: Rule<Any> {
+    override func verify(data: Any?) -> Bool {
+        return data != nil
+    }
+}
+
+class RuleNonEmpty: Rule<String> {
+    override func verify(data: String?) -> Bool {
         guard let data = data else { return false }
         return !data.isEmpty
+    }
+}
+
+class RuleNonZero: Rule<TimeInterval> {
+    override func verify(data: TimeInterval?) -> Bool {
+        guard let data = data else { return false }
+        return !data.isZero
     }
 }
