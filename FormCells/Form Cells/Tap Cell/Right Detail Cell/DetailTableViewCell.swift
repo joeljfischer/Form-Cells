@@ -8,10 +8,19 @@
 
 import UIKit
 
-class DetailTableViewCell: FormTableViewCell<Any> {
+class DetailTableViewCell: FormTableViewCell<String> {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+
+    override var data: String? {
+        get {
+            return detailTextLabel?.text
+        }
+        set {
+            detailTextLabel?.text = newValue
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
