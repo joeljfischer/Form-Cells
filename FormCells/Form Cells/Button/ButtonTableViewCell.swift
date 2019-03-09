@@ -9,7 +9,7 @@
 import UIKit
 
 class ButtonTableViewCell: FormTableViewCell<Any> {
-    @IBOutlet weak private var button: UIButton!
+    @IBOutlet private weak var button: UIButton!
 
     var title: String? {
         didSet {

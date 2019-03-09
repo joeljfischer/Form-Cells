@@ -9,7 +9,7 @@
 import UIKit
 
 class TextFieldTableViewCell: FormTableViewCell<String> {
-    @IBOutlet weak private var textField: UITextField!
+    @IBOutlet private weak var textField: UITextField!
 
     var placeholder: String? {
         get {

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// swiftlint:disable type_name
 class SingleSelectionSectionedTableViewController: UITableViewController {
     var onSelection: ((String?) -> Void)?
 
@@ -28,6 +29,7 @@ class SingleSelectionSectionedTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         markCurrentCell()
 
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
@@ -36,6 +38,7 @@ class SingleSelectionSectionedTableViewController: UITableViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         guard let onSelection = onSelection else { return }
         onSelection(value)
     }
@@ -60,7 +63,7 @@ extension SingleSelectionSectionedTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
 
         let key = keys[indexPath.section]
-        guard let optionText = options[key]?[indexPath.row] else { fatalError() }
+        guard let optionText = options[key]?[indexPath.row] else { fatalError("The options must exist for a given key") }
         cell.textLabel?.text = optionText
 
         return cell
@@ -76,8 +79,8 @@ extension SingleSelectionSectionedTableViewController {
     }
 
     private func markCurrentCell() {
-        for i in stride(from: 0, to: options.count, by: 1) {
-            let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0))
+        for index in stride(from: 0, to: options.count, by: 1) {
+            let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0))
             cell?.accessoryType = .none
 
             if cell?.textLabel?.text == value {

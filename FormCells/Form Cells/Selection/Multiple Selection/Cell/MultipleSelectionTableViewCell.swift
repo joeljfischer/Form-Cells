@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MultipleSelectionTableViewCell: FormTableViewCell<Any>  {
+class MultipleSelectionTableViewCell: FormTableViewCell<Any> {
     private let optionsVC = MultipleSelectionTableViewController(style: .grouped)
     var presentingViewController: UIViewController?
 

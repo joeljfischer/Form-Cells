@@ -25,6 +25,7 @@ class SingleSelectionTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         markCurrentCell()
 
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
@@ -33,6 +34,7 @@ class SingleSelectionTableViewController: UITableViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         guard let onSelection = onSelection else { return }
         onSelection(value)
     }
@@ -51,7 +53,7 @@ extension SingleSelectionTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
 
-        guard let optionText = options?[indexPath.row] else { fatalError() }
+        guard let optionText = options?[indexPath.row] else { fatalError("An option must exist") }
         cell.textLabel?.text = optionText
 
         return cell
@@ -67,8 +69,8 @@ extension SingleSelectionTableViewController {
     }
 
     private func markCurrentCell() {
-        for i in stride(from: 0, to: options.count, by: 1) {
-            let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0))
+        for index in stride(from: 0, to: options.count, by: 1) {
+            let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0))
             cell?.accessoryType = .none
 
             if cell?.textLabel?.text == value {

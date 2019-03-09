@@ -24,7 +24,7 @@ enum MarkdownKeyboardToolbarButtonType: Int {
     }
 }
 
-protocol MarkdownKeyboardToolbarDelegate: class {
+protocol MarkdownKeyboardToolbarDelegate: AnyObject {
     func keyboardToolbarButtonTapped(_ button: UIBarButtonItem, of type: MarkdownKeyboardToolbarButtonType, toolbar: MarkdownKeyboardToolbar)
 }
 

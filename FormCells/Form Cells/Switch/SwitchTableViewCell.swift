@@ -17,7 +17,7 @@ class SwitchTableViewCell: FormTableViewCell<Bool> {
             return onOffSwitch.isOn
         }
         set {
-            onOffSwitch.isOn = data ?? false
+            onOffSwitch.isOn = newValue ?? false
         }
     }
 

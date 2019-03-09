@@ -9,8 +9,8 @@
 import UIKit
 
 class MarkdownTextViewTableViewCell: UITableViewCell {
-    @IBOutlet weak private var titleLabel: UILabel!
-    @IBOutlet weak private var textView: UITextView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var textView: UITextView!
 
     private let keyboardToolbar = MarkdownKeyboardToolbar()
 
@@ -40,7 +40,7 @@ class MarkdownTextViewTableViewCell: UITableViewCell {
             textView.text = newValue
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -58,6 +58,4 @@ extension MarkdownTextViewTableViewCell: MarkdownKeyboardToolbarDelegate {
         default: break // TODO
         }
     }
-
-
 }

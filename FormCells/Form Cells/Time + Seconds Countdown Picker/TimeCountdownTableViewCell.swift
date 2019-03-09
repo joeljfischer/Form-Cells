@@ -20,7 +20,7 @@ class TimeCountdownTableViewCell: FormTableViewCell<TimeInterval> {
             return TimeInterval(hour + minute + second)
         }
         set {
-            guard let data = data else {
+            guard let data = newValue else {
                 picker.hour = 0
                 picker.minute = 0
                 picker.second = 0
@@ -28,9 +28,10 @@ class TimeCountdownTableViewCell: FormTableViewCell<TimeInterval> {
             }
 
             let time = data.timeFromTimeInterval
-            picker.hour = time.hour
-            picker.minute = time.minute
-            picker.second = time.second
+            guard let hour = time.hour, let minute = time.minute, let second = time.second else { fatalError("Hour / Min / Sec should always exist") }
+            picker.hour = hour
+            picker.minute = minute
+            picker.second = second
         }
     }
 

@@ -75,11 +75,11 @@ class DateKeyboardTableViewCell: UITableViewCell {
             dateFormatter.dateStyle = .short
             dateFormatter.timeStyle = .short
         case .countDownTimer:
-            fatalError()
+            fatalError("Countdown timer is not supported in this cell")
         }
     }
 
-    override open var inputView: UIView? {
+    override var inputView: UIView? {
         if let value = value {
             datePicker.setDate(value, animated: true)
         }

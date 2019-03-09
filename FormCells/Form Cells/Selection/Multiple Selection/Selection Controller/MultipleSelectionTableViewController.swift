@@ -25,6 +25,8 @@ class MultipleSelectionTableViewController: UITableViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
         guard let onSelection = onSelection else { return }
         onSelection(values)
     }
@@ -59,7 +61,7 @@ extension MultipleSelectionTableViewController {
 // MARK: - UITableViewDelegate
 extension MultipleSelectionTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) else { fatalError() }
+        guard let cell = tableView.cellForRow(at: indexPath) else { fatalError("Cell must exist") }
         guard let cellText = cell.textLabel?.text else { return }
 
         if cell.accessoryType != .checkmark {

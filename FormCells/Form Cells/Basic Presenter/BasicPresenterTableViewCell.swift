@@ -15,7 +15,7 @@ class BasicPresenterTableViewCell: FormTableViewCell<Any> {
             presentedViewController?.presentingCell = self
         }
     }
-    var onPresentCallback: ((_ cell: BasicPresenterTableViewCell,_ presentedController: FormPresentable) -> Void)?
+    var onPresentCallback: ((_ cell: BasicPresenterTableViewCell, _ presentedController: FormPresentable) -> Void)?
     var onDismissCallback: ((_ cell: BasicPresenterTableViewCell, _ dismissedController: FormPresentable) -> Void)?
 
     var presenting = false

@@ -85,9 +85,7 @@ extension CountdownPicker: UIPickerViewDelegate {
         }
 
         switch CountdownPickerComponents.allCases[component] {
-        case .hour: fallthrough
-        case .minute: fallthrough
-        case .second:
+        case .hour, .minute, .second:
             columnView.text = "\(row)"
         case .hourLabel:
             columnView.text = "hr"
@@ -108,27 +106,20 @@ extension CountdownPicker: UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch CountdownPickerComponents.allCases[component] {
-        case .hourLabel: fallthrough
-        case .minuteLabel: fallthrough
-        case .secondLabel:
+        case .hourLabel, .minuteLabel, .secondLabel:
             return 1
         case .hour:
             return 24
-        case .minute: fallthrough
-        case .second:
+        case .minute, .second:
             return 60
         }
     }
 
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         switch CountdownPickerComponents.allCases[component] {
-        case .hourLabel: fallthrough
-        case .minuteLabel: fallthrough
-        case .secondLabel:
+        case .hourLabel, .minuteLabel, .secondLabel:
             return pickerView.frame.width / 6
-        case .hour: fallthrough
-        case .minute: fallthrough
-        case .second:
+        case .hour, .minute, .second:
             return pickerView.frame.width / 12
         }
     }
