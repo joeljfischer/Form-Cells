@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FormTableViewCell<DataType>: UITableViewCell {
+class FormTableViewCell<DataType>: UITableViewCell, FormTappable {
     var data: DataType?
     var onSelection: (() -> Void) = {}
 

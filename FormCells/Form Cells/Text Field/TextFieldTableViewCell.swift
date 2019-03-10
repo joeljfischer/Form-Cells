@@ -8,8 +8,8 @@
 
 import UIKit
 
-class TextFieldTableViewCell: FormTableViewCell<String> {
-    @IBOutlet private weak var textField: UITextField!
+class TextFieldTableViewCell: FormTableViewCell<String>, UITextFieldDelegate {
+    @IBOutlet weak var textField: UITextField!
 
     var placeholder: String? {
         get {
@@ -31,7 +31,8 @@ class TextFieldTableViewCell: FormTableViewCell<String> {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        textField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -42,5 +43,11 @@ class TextFieldTableViewCell: FormTableViewCell<String> {
 
     override func tapped() {
         textField.becomeFirstResponder()
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+
+        return false
     }
 }

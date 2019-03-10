@@ -8,15 +8,15 @@
 
 import UIKit
 
-protocol FormDataRetrievable where Self: UITableViewCell {
+protocol FormDataRetrievable: AnyObject {
     var data: Any { get set }
 }
 
-protocol FormTappable where Self: UITableViewCell {
+protocol FormTappable: AnyObject {
     func tapped()
 }
 
-protocol FormTapCallbackable where Self: FormTappable {
+protocol FormTapCallbackable: FormTappable {
     var onSelection: (() -> Void)? { get set }
 }
 
