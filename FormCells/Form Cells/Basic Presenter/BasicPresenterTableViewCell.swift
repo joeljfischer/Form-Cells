@@ -29,7 +29,7 @@ class BasicPresenterTableViewCell: FormTableViewCell<Any> {
             fatalError("You cannot use the SingleSelectionTableViewCell before setting `presentingViewController` and that view controller must be in a UINavigationController")
         }
 
-        navigationController.pushViewController(presentedViewController as! UIViewController, animated: true)
+        navigationController.pushViewController(presentedViewController as UIViewController, animated: true)
         presenting = true
 
         if let onPresentCallback = onPresentCallback {
