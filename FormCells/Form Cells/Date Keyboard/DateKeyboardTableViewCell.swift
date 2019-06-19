@@ -76,6 +76,8 @@ class DateKeyboardTableViewCell: UITableViewCell {
             dateFormatter.timeStyle = .short
         case .countDownTimer:
             fatalError("Countdown timer is not supported in this cell")
+        @unknown default:
+            fatalError("Unknown type is not supported in this cell")
         }
     }
 
