@@ -54,7 +54,7 @@ class MultipleSelectionTableViewCell: FormTableViewCell<Any> {
 
     override func tapped() {
         guard let navigationController = presentingViewController?.navigationController else {
-            fatalError("You cannot use the MultipleSelectionTableViewCell before setting `presentingViewController` and that view controller must be in a UINavigationController")
+            preconditionFailure("You cannot use the MultipleSelectionTableViewCell before setting `presentingViewController` and that view controller must be in a UINavigationController")
         }
 
         navigationController.pushViewController(optionsVC, animated: true)

@@ -61,7 +61,7 @@ extension MultipleSelectionTableViewController {
 // MARK: - UITableViewDelegate
 extension MultipleSelectionTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) else { fatalError("Cell must exist") }
+        guard let cell = tableView.cellForRow(at: indexPath) else { preconditionFailure("Cell must exist") }
         guard let cellText = cell.textLabel?.text else { return }
 
         if cell.accessoryType != .checkmark {

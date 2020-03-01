@@ -63,7 +63,7 @@ extension SingleSelectionSectionedTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
 
         let key = keys[indexPath.section]
-        guard let optionText = options[key]?[indexPath.row] else { fatalError("The options must exist for a given key") }
+        guard let optionText = options[key]?[indexPath.row] else { preconditionFailure("The options must exist for a given key") }
         cell.textLabel?.text = optionText
 
         return cell

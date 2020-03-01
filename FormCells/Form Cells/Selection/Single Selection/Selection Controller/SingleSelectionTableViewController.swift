@@ -53,7 +53,7 @@ extension SingleSelectionTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
 
-        guard let optionText = options?[indexPath.row] else { fatalError("An option must exist") }
+        guard let optionText = options?[indexPath.row] else { preconditionFailure("An option must exist") }
         cell.textLabel?.text = optionText
 
         return cell

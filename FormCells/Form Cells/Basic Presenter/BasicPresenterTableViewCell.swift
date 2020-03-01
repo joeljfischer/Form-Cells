@@ -26,7 +26,7 @@ class BasicPresenterTableViewCell: FormTableViewCell<Any> {
 
     override func tapped() {
         guard let navigationController = presentingViewController?.navigationController, let presentedViewController = presentedViewController else {
-            fatalError("You cannot use the SingleSelectionTableViewCell before setting `presentingViewController` and that view controller must be in a UINavigationController")
+            preconditionFailure("You cannot use the SingleSelectionTableViewCell before setting `presentingViewController` and that view controller must be in a UINavigationController")
         }
 
         navigationController.pushViewController(presentedViewController as UIViewController, animated: true)

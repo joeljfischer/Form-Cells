@@ -28,7 +28,7 @@ class TimeCountdownTableViewCell: FormTableViewCell<TimeInterval> {
             }
 
             let time = data.timeFromTimeInterval
-            guard let hour = time.hour, let minute = time.minute, let second = time.second else { fatalError("Hour / Min / Sec should always exist") }
+            guard let hour = time.hour, let minute = time.minute, let second = time.second else { preconditionFailure("Hour / Min / Sec should always exist") }
             picker.hour = hour
             picker.minute = minute
             picker.second = second
