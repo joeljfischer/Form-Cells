@@ -17,6 +17,12 @@ class ButtonTableViewCell: FormTableViewCell<Any> {
         }
     }
 
+    var attributedTitle: NSAttributedString? {
+        didSet {
+            button.setAttributedTitle(attributedTitle, for: .normal)
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
