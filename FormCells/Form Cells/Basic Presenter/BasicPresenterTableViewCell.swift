@@ -22,6 +22,10 @@ class BasicPresenterTableViewCell: FormTableViewCell<Any> {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        textLabel?.text = nil
+        detailTextLabel?.text = nil
+        accessoryType = .disclosureIndicator
     }
 
     override func tapped() {

@@ -24,3 +24,7 @@ protocol FormPresentable where Self: UIViewController {
     var presentingCell: BasicPresenterTableViewCell? { get set }
     func willDismiss()
 }
+
+extension FormPresentable {
+    func willDismiss() { }
+}
