@@ -23,17 +23,21 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hij-8z-eL8">
-                        <rect key="frame" x="326" y="8" width="51" height="53"/>
+                        <rect key="frame" x="326" y="19" width="51" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="49" id="egH-JR-Dw5"/>
+                        </constraints>
                     </switch>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="tnT-bl-hL4" secondAttribute="bottom" constant="8" id="1Id-CN-tQK"/>
-                    <constraint firstItem="hij-8z-eL8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="9d4-57-OVh"/>
+                    <constraint firstItem="hij-8z-eL8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="TLA-BQ-Jld"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hij-8z-eL8" secondAttribute="bottom" constant="12" id="VNg-n3-hvV"/>
                     <constraint firstItem="hij-8z-eL8" firstAttribute="leading" secondItem="tnT-bl-hL4" secondAttribute="trailing" constant="16" id="bGX-i8-mXp"/>
+                    <constraint firstItem="hij-8z-eL8" firstAttribute="centerY" secondItem="tnT-bl-hL4" secondAttribute="centerY" id="fa2-nK-htK"/>
                     <constraint firstAttribute="trailing" secondItem="hij-8z-eL8" secondAttribute="trailing" constant="12" id="jo1-G5-KgH"/>
                     <constraint firstItem="tnT-bl-hL4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qni-R8-coz"/>
                     <constraint firstItem="tnT-bl-hL4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="rWU-af-hUM"/>
-                    <constraint firstAttribute="bottom" secondItem="hij-8z-eL8" secondAttribute="bottom" constant="8" id="uz0-0q-TZt"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
