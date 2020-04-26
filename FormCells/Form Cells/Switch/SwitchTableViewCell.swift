@@ -12,6 +12,14 @@ class SwitchTableViewCell: FormTableViewCell<Bool> {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var onOffSwitch: UISwitch!
 
+    var onChange: ((Bool) -> Void)?
+
+    var title = NSAttributedString() {
+        didSet {
+            titleLabel.attributedText = title
+        }
+    }
+
     override var data: Bool? {
         get {
             return onOffSwitch.isOn
@@ -23,17 +31,21 @@ class SwitchTableViewCell: FormTableViewCell<Bool> {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        onOffSwitch.addTarget(self, action: #selector(switchValueDidChange), for: .touchUpInside)
     }
 
     override func tapped() {
         super.tapped()
-        onOffSwitch.isOn = !onOffSwitch.isOn
+        onOffSwitch.toggle()
+
+        onChange?(onOffSwitch.isOn)
+    }
+}
+
+// MARK: - Actions
+extension SwitchTableViewCell {
+    @objc private func switchValueDidChange() {
+        onChange?(onOffSwitch.isOn)
     }
 }
