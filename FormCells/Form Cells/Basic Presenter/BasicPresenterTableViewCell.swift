@@ -18,8 +18,6 @@ class BasicPresenterTableViewCell: FormTableViewCell<Any> {
     var onPresentCallback: ((_ cell: BasicPresenterTableViewCell, _ presentedController: FormPresentable) -> Void)?
     var onDismissCallback: ((_ cell: BasicPresenterTableViewCell, _ dismissedController: FormPresentable) -> Void)?
 
-    var presenting = false
-
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -29,12 +27,15 @@ class BasicPresenterTableViewCell: FormTableViewCell<Any> {
     }
 
     override func tapped() {
-        guard let navigationController = presentingViewController?.navigationController, let presentedViewController = presentedViewController else {
-            preconditionFailure("You cannot use the SingleSelectionTableViewCell before setting `presentingViewController` and that view controller must be in a UINavigationController")
+        guard let presentedViewController = presentedViewController else {
+            preconditionFailure("The presentedViewController must be set before the cell is tapped")
         }
 
-        navigationController.pushViewController(presentedViewController as UIViewController, animated: true)
-        presenting = true
+        if let splitViewController = presentingViewController?.splitViewController {
+            splitViewController.showDetailViewController(presentedViewController as UIViewController, sender: presentingViewController)
+        } else if let navigationController = presentingViewController?.navigationController {
+            navigationController.pushViewController(presentedViewController as UIViewController, animated: true)
+        }
 
         if let onPresentCallback = onPresentCallback {
             onPresentCallback(self, presentedViewController)
