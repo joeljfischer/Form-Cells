@@ -11,6 +11,7 @@ import UIKit
 class SingleSelectionTableViewCell: FormTableViewCell<Any> {
     private let optionsVC = SingleSelectionTableViewController(style: .grouped)
     var presentingViewController: UIViewController?
+    var onChanged: ((_ newValue: String) -> Void)?
 
     var title: String? {
         didSet {
