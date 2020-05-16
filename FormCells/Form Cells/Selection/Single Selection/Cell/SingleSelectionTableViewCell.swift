@@ -19,14 +19,14 @@ class SingleSelectionTableViewCell: FormTableViewCell<Any> {
         }
     }
 
-    var value: String? {
+    var value: FormOptionValue? {
         didSet {
             optionsVC.value = value
-            detailTextLabel?.text = value
+            detailTextLabel?.text = value?.title
         }
     }
 
-    var options: [String]? {
+    var options: [FormOptionValue]? {
         didSet {
             optionsVC.options = options
         }

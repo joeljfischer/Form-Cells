@@ -9,10 +9,10 @@
 import UIKit
 
 class SingleSelectionTableViewController: UITableViewController {
-    var onSelection: ((String?) -> Void)?
+    var onSelection: ((FormOptionValue?) -> Void)?
 
-    var value: String?
-    var options: [String]! {
+    var value: FormOptionValue?
+    var options: [FormOptionValue]! {
         didSet {
             tableView.reloadData()
         }
@@ -54,8 +54,8 @@ extension SingleSelectionTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
 
-        guard let optionText = options?[indexPath.row] else { preconditionFailure("An option must exist") }
-        cell.textLabel?.text = optionText
+        guard let option = options?[indexPath.row] else { preconditionFailure("An option must exist") }
+        cell.textLabel?.text = option.title
 
         return cell
     }
@@ -64,7 +64,13 @@ extension SingleSelectionTableViewController {
 // MARK: - UITableViewDelegate
 extension SingleSelectionTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        value = tableView.cellForRow(at: indexPath)?.textLabel?.text
+        guard let selectedText = tableView.cellForRow(at: indexPath)?.textLabel?.text else { return }
+        for option in options {
+            if option.title == selectedText {
+                value = option
+            }
+        }
+
         markCurrentCell()
         navigationController?.popViewController(animated: true)
     }
@@ -74,7 +80,7 @@ extension SingleSelectionTableViewController {
             let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0))
             cell?.accessoryType = .none
 
-            if cell?.textLabel?.text == value {
+            if cell?.textLabel?.text == value?.title {
                 cell?.accessoryType = .checkmark
             }
         }
