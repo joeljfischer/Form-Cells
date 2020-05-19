@@ -11,7 +11,7 @@ import UIKit
 class SingleSelectionTableViewCell: FormTableViewCell<Any> {
     private let optionsVC = SingleSelectionTableViewController(style: .grouped)
     var presentingViewController: UIViewController?
-    var onChanged: ((_ newValue: String) -> Void)?
+    var onChanged: ((_ newValue: FormOptionValue) -> Void)?
 
     var title: String? {
         didSet {
@@ -37,6 +37,7 @@ class SingleSelectionTableViewCell: FormTableViewCell<Any> {
 
         optionsVC.onSelection = { [weak self] (value) in
             self?.value = value
+            self?.onChanged?(value)
         }
     }
 

@@ -9,7 +9,7 @@
 import UIKit
 
 class SingleSelectionTableViewController: UITableViewController {
-    var onSelection: ((FormOptionValue?) -> Void)?
+    var onSelection: ((FormOptionValue) -> Void)?
 
     var value: FormOptionValue?
     var options: [FormOptionValue]! {
@@ -36,7 +36,8 @@ class SingleSelectionTableViewController: UITableViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        guard let onSelection = onSelection else { return }
+        guard let onSelection = onSelection,
+            let value = value else { return }
         onSelection(value)
     }
 }
