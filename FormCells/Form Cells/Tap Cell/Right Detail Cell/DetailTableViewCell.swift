@@ -9,17 +9,29 @@
 import UIKit
 
 class DetailTableViewCell: FormTableViewCell<String> {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override var data: String? {
+    var title: NSAttributedString? {
         get {
-            return detailTextLabel?.text
+            return titleLabel.attributedText
         }
         set {
-            detailTextLabel?.text = newValue
+            titleLabel.attributedText = newValue
+        }
+    }
+
+    override var data: String? {
+        get {
+            return detailLabel?.text
+        }
+        set {
+            detailLabel?.text = newValue
         }
     }
 
