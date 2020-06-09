@@ -9,6 +9,8 @@
 import UIKit
 
 class BasicTableViewCell: FormTableViewCell<Any> {
+    @IBOutlet weak var titleLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

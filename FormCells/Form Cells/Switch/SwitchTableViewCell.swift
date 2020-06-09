@@ -37,7 +37,7 @@ class SwitchTableViewCell: FormTableViewCell<Bool> {
 
     override func tapped() {
         super.tapped()
-        onOffSwitch.toggle()
+        onOffSwitch.isOn = !onOffSwitch.isOn
 
         onChange?(onOffSwitch.isOn)
     }
