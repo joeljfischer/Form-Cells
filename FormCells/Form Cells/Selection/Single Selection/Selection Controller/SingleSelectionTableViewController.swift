@@ -66,10 +66,8 @@ extension SingleSelectionTableViewController {
 extension SingleSelectionTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let selectedText = tableView.cellForRow(at: indexPath)?.textLabel?.text else { return }
-        for option in options {
-            if option.title == selectedText {
-                value = option
-            }
+        for option in options where option.title == selectedText {
+            value = option
         }
 
         markCurrentCell()
