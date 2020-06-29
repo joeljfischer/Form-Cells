@@ -14,6 +14,10 @@ class ButtonTableViewCell: FormTableViewCell<Any> {
     var alignment: UIControl.ContentHorizontalAlignment = .center {
         didSet {
             button.contentHorizontalAlignment = alignment
+
+            if alignment == .leading {
+                button.titleEdgeInsets = UIEdgeInsets(horizontal: 20, vertical: 0)
+            }
         }
     }
 
