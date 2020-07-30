@@ -9,16 +9,9 @@
 import UIKit
 
 class BasicTableViewCell: FormTableViewCell<Any> {
-    @IBOutlet weak var titleLabel: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView?.contentMode = .scaleAspectFit
+        imageView?.bounds = CGRect(x: 0, y: 0, width: 24, height: 24)
     }
 }
