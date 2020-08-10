@@ -32,6 +32,15 @@ class SingleSelectionTableViewCell: FormTableViewCell<Any> {
         }
     }
 
+    var footerText: String? {
+        get {
+            optionsVC.footerText
+        }
+        set {
+            optionsVC.footerText = newValue
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
 

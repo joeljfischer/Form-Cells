@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ny0-Lp-P8B">
-                        <rect key="frame" x="12" y="0.0" width="376" height="22"/>
+                        <rect key="frame" x="15" y="0.0" width="370" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="59X-GY-WJN"/>
                         </constraints>
@@ -27,8 +27,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Ny0-Lp-P8B" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="80j-EN-YU0"/>
-                    <constraint firstAttribute="trailing" secondItem="Ny0-Lp-P8B" secondAttribute="trailing" constant="12" id="Gmc-UZ-PTx"/>
-                    <constraint firstItem="Ny0-Lp-P8B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="VAc-wD-LUO"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ny0-Lp-P8B" secondAttribute="trailing" id="Gmc-UZ-PTx"/>
+                    <constraint firstItem="Ny0-Lp-P8B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="VAc-wD-LUO"/>
                     <constraint firstItem="Ny0-Lp-P8B" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="qYH-C1-Asv"/>
                 </constraints>
             </tableViewCellContentView>

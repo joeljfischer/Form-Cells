@@ -11,6 +11,7 @@ import UIKit
 class SingleSelectionTableViewController: UITableViewController {
     var onSelection: ((FormOptionValue) -> Void)?
 
+    var footerText: String?
     var value: FormOptionValue?
     var options: [FormOptionValue]! {
         didSet {
@@ -59,6 +60,10 @@ extension SingleSelectionTableViewController {
         cell.textLabel?.text = option.title
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return footerText
     }
 }
 
