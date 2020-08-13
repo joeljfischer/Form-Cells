@@ -11,9 +11,13 @@ import UIKit
 class SingleSelectionTableViewController: UITableViewController {
     var onSelection: ((FormOptionValue) -> Void)?
 
-    var footerText: String?
     var value: FormOptionValue?
     var options: [FormOptionValue]! {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    var footerText: String? {
         didSet {
             tableView.reloadData()
         }
