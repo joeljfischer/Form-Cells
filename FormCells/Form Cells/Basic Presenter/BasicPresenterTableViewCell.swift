@@ -27,13 +27,11 @@ class BasicPresenterTableViewCell: FormTableViewCell<Any> {
     }
 
     override func tapped() {
-        guard let presentedViewController = presentedViewController else {
-            preconditionFailure("The presentedViewController must be set before the cell is tapped")
+        guard let presentingViewController = presentingViewController, let presentedViewController = presentedViewController else {
+            preconditionFailure("The presenting / presentedViewController must be set before the cell is tapped")
         }
 
-        if let splitViewController = presentingViewController?.splitViewController {
-            splitViewController.showDetailViewController(presentedViewController as UIViewController, sender: presentingViewController)
-        } else if let navigationController = presentingViewController?.navigationController {
+        if let navigationController = presentingViewController.navigationController {
             navigationController.pushViewController(presentedViewController as UIViewController, animated: true)
         }
 
