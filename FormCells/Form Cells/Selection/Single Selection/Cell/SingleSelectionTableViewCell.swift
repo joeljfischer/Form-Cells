@@ -9,7 +9,7 @@
 import UIKit
 
 class SingleSelectionTableViewCell: FormTableViewCell<Any> {
-    private let optionsVC = SingleSelectionTableViewController(style: .grouped)
+    private let optionsVC = SingleSelectionTableViewController(style: .insetGrouped)
     var presentingViewController: UIViewController?
     var onChanged: ((_ newValue: FormOptionValue) -> Void)?
 
@@ -29,6 +29,15 @@ class SingleSelectionTableViewCell: FormTableViewCell<Any> {
     var options: [FormOptionValue]? {
         didSet {
             optionsVC.options = options
+        }
+    }
+
+    var vcFooterText: String? {
+        get {
+            optionsVC.footerText
+        }
+        set {
+            optionsVC.footerText = newValue
         }
     }
 

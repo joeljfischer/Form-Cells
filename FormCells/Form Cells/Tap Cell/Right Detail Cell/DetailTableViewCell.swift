@@ -14,7 +14,8 @@ class DetailTableViewCell: FormTableViewCell<String> {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        detailLabel.textColor = .secondaryLabel
     }
 
     var title: NSAttributedString? {

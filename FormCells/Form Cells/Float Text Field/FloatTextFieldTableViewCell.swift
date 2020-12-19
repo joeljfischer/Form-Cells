@@ -10,7 +10,7 @@ import SkyFloatingLabelTextField
 import UIKit
 
 class FloatTextFieldTableViewCell: UITableViewCell {
-    @IBOutlet private weak var textField: SkyFloatingLabelTextField!
+    @IBOutlet weak var textField: SkyFloatingLabelTextField!
 
     var placeholder: String? {
         get {

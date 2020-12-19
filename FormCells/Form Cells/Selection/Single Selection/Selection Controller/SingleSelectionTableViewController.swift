@@ -17,6 +17,11 @@ class SingleSelectionTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    var footerText: String? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,16 +65,18 @@ extension SingleSelectionTableViewController {
 
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return footerText
+    }
 }
 
 // MARK: - UITableViewDelegate
 extension SingleSelectionTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let selectedText = tableView.cellForRow(at: indexPath)?.textLabel?.text else { return }
-        for option in options {
-            if option.title == selectedText {
-                value = option
-            }
+        for option in options where option.title == selectedText {
+            value = option
         }
 
         markCurrentCell()

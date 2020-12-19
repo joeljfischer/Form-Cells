@@ -26,6 +26,12 @@ class BasicPresenterTableViewCell: FormTableViewCell<Any> {
         accessoryType = .disclosureIndicator
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView?.contentMode = .scaleAspectFit
+        imageView?.bounds = CGRect(x: 0, y: 0, width: 24, height: 24)
+    }
+
     override func tapped() {
         guard let presentingViewController = presentingViewController, let presentedViewController = presentedViewController else {
             preconditionFailure("The presenting / presentedViewController must be set before the cell is tapped")
