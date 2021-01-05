@@ -9,13 +9,13 @@
 import UIKit
 
 class SingleSelectionTableViewCell: FormTableViewCell<Any> {
-    private let optionsVC = SingleSelectionTableViewController(style: .insetGrouped)
+    private let optionsVC = SingleSelectionTableViewController(style: .grouped)
     var presentingViewController: UIViewController?
     var onChanged: ((_ newValue: FormOptionValue) -> Void)?
 
-    var title: String? {
+    var title: NSAttributedString? {
         didSet {
-            textLabel?.text = title
+            textLabel?.attributedText = title
         }
     }
 
@@ -56,6 +56,6 @@ class SingleSelectionTableViewCell: FormTableViewCell<Any> {
         }
 
         navigationController.pushViewController(optionsVC, animated: true)
-        optionsVC.title = title
+        optionsVC.title = title?.string
     }
 }
