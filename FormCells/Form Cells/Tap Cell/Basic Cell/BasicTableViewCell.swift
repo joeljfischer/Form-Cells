@@ -9,9 +9,6 @@
 import UIKit
 
 class BasicTableViewCell: FormTableViewCell<Any> {
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView?.contentMode = .scaleAspectFit
-        imageView?.bounds = CGRect(x: 0, y: 0, width: 24, height: 24)
-    }
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
 }

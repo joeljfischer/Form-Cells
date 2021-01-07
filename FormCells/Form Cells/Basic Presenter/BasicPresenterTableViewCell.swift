@@ -9,6 +9,9 @@
 import UIKit
 
 class BasicPresenterTableViewCell: FormTableViewCell<Any> {
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+
     var presentingViewController: UIViewController?
     var presentedViewController: FormPresentable? {
         didSet {
@@ -21,15 +24,9 @@ class BasicPresenterTableViewCell: FormTableViewCell<Any> {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        textLabel?.text = nil
-        detailTextLabel?.text = nil
+        iconImageView.image = nil
+        titleLabel.text = nil
         accessoryType = .disclosureIndicator
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView?.contentMode = .scaleAspectFit
-        imageView?.bounds = CGRect(x: 0, y: 0, width: 24, height: 24)
     }
 
     override func tapped() {
