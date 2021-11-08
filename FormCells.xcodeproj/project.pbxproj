@@ -18,8 +18,8 @@
 		4A9B63CF2738C7AA0092222F /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B639C2738C7A90092222F /* Rules.swift */; };
 		4A9B63D02738C7AA0092222F /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B639E2738C7A90092222F /* FormTableViewCell.swift */; };
 		4A9B63D12738C7AA0092222F /* FormCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B63A02738C7A90092222F /* FormCellProtocols.swift */; };
-		4A9B63D22738C7AA0092222F /* BasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B63A32738C7A90092222F /* BasicTableViewCell.xib */; };
-		4A9B63D32738C7AA0092222F /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B63A42738C7A90092222F /* BasicTableViewCell.swift */; };
+		4A9B63D22738C7AA0092222F /* BasicWithImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B63A32738C7A90092222F /* BasicWithImageTableViewCell.xib */; };
+		4A9B63D32738C7AA0092222F /* BasicWithImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B63A42738C7A90092222F /* BasicWithImageTableViewCell.swift */; };
 		4A9B63D42738C7AA0092222F /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B63A62738C7A90092222F /* DetailTableViewCell.swift */; };
 		4A9B63D52738C7AA0092222F /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B63A72738C7A90092222F /* DetailTableViewCell.xib */; };
 		4A9B63D62738C7AA0092222F /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B63A92738C7A90092222F /* ButtonTableViewCell.xib */; };
@@ -40,6 +40,8 @@
 		4A9B63E52738C7AA0092222F /* MarkdownTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B63C32738C7A90092222F /* MarkdownTextViewTableViewCell.swift */; };
 		4A9B63E62738C7AA0092222F /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B63C52738C7A90092222F /* TextFieldTableViewCell.xib */; };
 		4A9B63E72738C7AA0092222F /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B63C62738C7A90092222F /* TextFieldTableViewCell.swift */; };
+		4A9B6444273959D10092222F /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B6442273959D10092222F /* BasicTableViewCell.swift */; };
+		4A9B6445273959D10092222F /* BasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B6443273959D10092222F /* BasicTableViewCell.xib */; };
 		5DC5A25221A0D6CA00C61BDD /* FormCells.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC5A24821A0D6CA00C61BDD /* FormCells.framework */; };
 		5DC5A25921A0D6CA00C61BDD /* FormCells.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC5A24B21A0D6CA00C61BDD /* FormCells.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -66,8 +68,8 @@
 		4A9B639C2738C7A90092222F /* Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
 		4A9B639E2738C7A90092222F /* FormTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
 		4A9B63A02738C7A90092222F /* FormCellProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormCellProtocols.swift; sourceTree = "<group>"; };
-		4A9B63A32738C7A90092222F /* BasicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTableViewCell.xib; sourceTree = "<group>"; };
-		4A9B63A42738C7A90092222F /* BasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
+		4A9B63A32738C7A90092222F /* BasicWithImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicWithImageTableViewCell.xib; sourceTree = "<group>"; };
+		4A9B63A42738C7A90092222F /* BasicWithImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicWithImageTableViewCell.swift; sourceTree = "<group>"; };
 		4A9B63A62738C7A90092222F /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		4A9B63A72738C7A90092222F /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		4A9B63A92738C7A90092222F /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -88,6 +90,8 @@
 		4A9B63C32738C7A90092222F /* MarkdownTextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownTextViewTableViewCell.swift; sourceTree = "<group>"; };
 		4A9B63C52738C7A90092222F /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		4A9B63C62738C7A90092222F /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		4A9B6442273959D10092222F /* BasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
+		4A9B6443273959D10092222F /* BasicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicTableViewCell.xib; sourceTree = "<group>"; };
 		5DC5A24821A0D6CA00C61BDD /* FormCells.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FormCells.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC5A24B21A0D6CA00C61BDD /* FormCells.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormCells.h; sourceTree = "<group>"; };
 		5DC5A24C21A0D6CA00C61BDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -206,8 +210,10 @@
 		4A9B63A22738C7A90092222F /* Basic Cell */ = {
 			isa = PBXGroup;
 			children = (
-				4A9B63A32738C7A90092222F /* BasicTableViewCell.xib */,
-				4A9B63A42738C7A90092222F /* BasicTableViewCell.swift */,
+				4A9B63A32738C7A90092222F /* BasicWithImageTableViewCell.xib */,
+				4A9B63A42738C7A90092222F /* BasicWithImageTableViewCell.swift */,
+				4A9B6443273959D10092222F /* BasicTableViewCell.xib */,
+				4A9B6442273959D10092222F /* BasicTableViewCell.swift */,
 			);
 			path = "Basic Cell";
 			sourceTree = "<group>";
@@ -449,7 +455,8 @@
 			files = (
 				4A9B63CD2738C7AA0092222F /* TimeCountdownTableViewCell.xib in Resources */,
 				4A9B63C92738C7AA0092222F /* DateKeyboardTableViewCell.xib in Resources */,
-				4A9B63D22738C7AA0092222F /* BasicTableViewCell.xib in Resources */,
+				4A9B6445273959D10092222F /* BasicTableViewCell.xib in Resources */,
+				4A9B63D22738C7AA0092222F /* BasicWithImageTableViewCell.xib in Resources */,
 				4A9B63C72738C7AA0092222F /* FloatTextFieldTableViewCell.xib in Resources */,
 				4A9B63D52738C7AA0092222F /* DetailTableViewCell.xib in Resources */,
 				4A9B63D62738C7AA0092222F /* ButtonTableViewCell.xib in Resources */,
@@ -476,12 +483,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A9B6444273959D10092222F /* BasicTableViewCell.swift in Sources */,
 				4A9B63D72738C7AA0092222F /* ButtonTableViewCell.swift in Sources */,
 				4A9B63D02738C7AA0092222F /* FormTableViewCell.swift in Sources */,
 				4A9B63E72738C7AA0092222F /* TextFieldTableViewCell.swift in Sources */,
 				4A9B63E22738C7AA0092222F /* MultipleSelectionTableViewCell.swift in Sources */,
 				4A9B63E52738C7AA0092222F /* MarkdownTextViewTableViewCell.swift in Sources */,
-				4A9B63D32738C7AA0092222F /* BasicTableViewCell.swift in Sources */,
+				4A9B63D32738C7AA0092222F /* BasicWithImageTableViewCell.swift in Sources */,
 				4A9B63E02738C7AA0092222F /* MultipleSelectionTableViewController.swift in Sources */,
 				4A9B63D12738C7AA0092222F /* FormCellProtocols.swift in Sources */,
 				4A9B63D42738C7AA0092222F /* DetailTableViewCell.swift in Sources */,
