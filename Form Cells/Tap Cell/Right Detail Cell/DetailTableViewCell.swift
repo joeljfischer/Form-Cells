@@ -17,28 +17,4 @@ class DetailTableViewCell: FormTableViewCell<String> {
 
         detailLabel.textColor = .secondaryLabel
     }
-
-    var title: NSAttributedString? {
-        get {
-            return titleLabel.attributedText
-        }
-        set {
-            titleLabel.attributedText = newValue
-        }
-    }
-
-    override var data: String? {
-        get {
-            return detailLabel?.text
-        }
-        set {
-            detailLabel?.text = newValue
-        }
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }
